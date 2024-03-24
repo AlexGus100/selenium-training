@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/training-selenium/pom.xml" />
+        <option value="$PROJECT_DIR$/Selenium-training/pom.xml" />
       </list>
     </option>
   </component>
