@@ -24,7 +24,6 @@ public class AdminPanelSectionsTest {
         authAdmin();
 
         List<WebElement> sections = driver.findElement(By.id("box-apps-menu")).findElements(By.cssSelector("[id^=app-]"));
-        System.out.println(sections.size());
         for (int i = 0; i < sections.size(); i++) {
             sections.get(i).click();
             assertTrue(isHeaderExist());
