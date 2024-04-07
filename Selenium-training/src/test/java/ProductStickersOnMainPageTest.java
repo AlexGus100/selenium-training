@@ -23,7 +23,7 @@ public class ProductStickersOnMainPageTest {
     public void CheckProductStickersOnMainPageTest() {
         openMainPage();
 
-        List<WebElement> products = driver.findElements(By.cssSelector(".product.column.shadow.hover-light"));
+        List<WebElement> products = driver.findElements(By.className("product"));
         for (int i = 0; i < products.size(); i++) {
             assertTrue(isStickerExistAndSingle(products.get(i)));
         }
