@@ -49,10 +49,6 @@ public class AdminCountriesPageTest {
             }
         }
 
-        for(Integer rowWithGeoZones: rowsWithGeoZones) {
-            System.out.println(rowWithGeoZones);
-        }
-
         for (Integer rowsWithGeoZone : rowsWithGeoZones) {
             driver
                     .findElement(By.name("countries_form"))
