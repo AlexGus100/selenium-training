@@ -25,8 +25,8 @@ public class NewUserSignInTest {
         driver.findElement(By.name("address1")).sendKeys("Wall Street 12/10");
         driver.findElement(By.name("postcode")).sendKeys("12345");
         driver.findElement(By.name("city")).sendKeys("New York");
-        Select country = new Select(driver.findElement(By.name("country_code")));
-        country.selectByVisibleText("United States");
+        driver.findElement(By.className("select2-selection__arrow")).click();
+        driver.findElement(By.cssSelector("[id$=US]")).click();
         Select zoneCode = new Select(driver.findElement(By.cssSelector("select[name=zone_code]")));
         zoneCode.selectByValue("NY");
         String userEmail = emailGenerator();
