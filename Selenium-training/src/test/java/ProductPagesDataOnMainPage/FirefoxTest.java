@@ -104,13 +104,6 @@ public class FirefoxTest extends TestBase{
     }
 
     @Override
-    public boolean isTextRed(WebElement element) {
-        char g = element.getCssValue("color").charAt(9);
-        char b = element.getCssValue("color").charAt(12);
-        return g=='0' && b=='0';
-    }
-
-    @Override
     public boolean isTextBoldOnMainPage(WebElement element) {
         String fontWeight = element.getCssValue("font-weight");
         return fontWeight.equals("900");

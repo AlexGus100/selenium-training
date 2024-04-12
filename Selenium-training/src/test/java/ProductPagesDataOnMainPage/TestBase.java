@@ -1,20 +1,23 @@
 package ProductPagesDataOnMainPage;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 
 public class TestBase {
 
     public boolean isTextGrey(WebElement element) {
-        String r = element.getCssValue("text-decoration-color").substring(4,7);
-        String g = element.getCssValue("text-decoration-color").substring(9,12);
-        String b = element.getCssValue("text-decoration-color").substring(14,17);
-        return r.equals(g) && r.equals(b);
+        Color color = Color.fromString(element.getCssValue("color"));
+        int r = color.getColor().getRed();
+        int g = color.getColor().getGreen();
+        int b = color.getColor().getBlue();
+        return r==g && r==b;
     }
 
     public boolean isTextRed(WebElement element) {
-        char g = element.getCssValue("color").charAt(10);
-        char b = element.getCssValue("color").charAt(13);
-        return g=='0' && b=='0';
+        Color color = Color.fromString(element.getCssValue("color"));
+        int g = color.getColor().getGreen();
+        int b = color.getColor().getBlue();
+        return g==0 && b==0;
     }
 
     public boolean isTextCrossed(WebElement element) {
@@ -33,8 +36,8 @@ public class TestBase {
     }
 
     public boolean isRightBiggerThanLeft(WebElement leftElement, WebElement rightElement) {
-        int leftElementSize = leftElement.getSize().height * leftElement.getSize().width;
-        int rightElementSize = rightElement.getSize().height * rightElement.getSize().width;
+        float leftElementSize = Float.parseFloat(leftElement.getCssValue("font-size").replaceFirst("px", ""));
+        float rightElementSize = Float.parseFloat(rightElement.getCssValue("font-size").replaceFirst("px", ""));
         return rightElementSize>leftElementSize;
     }
 
