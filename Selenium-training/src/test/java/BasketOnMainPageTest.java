@@ -43,7 +43,8 @@ public class BasketOnMainPageTest {
 
         driver.findElement(By.cssSelector("a[href='http://localhost/litecart/en/checkout'].link")).click();
 
-        for (int i = 0; i < 3; i++) {
+        int productsInBasketCount = driver.findElement(By.className("shortcuts")).findElements(By.tagName("li")).size();
+        for (int i = 0; i < productsInBasketCount; i++) {
             deleteFromBasket();
         }
     }
